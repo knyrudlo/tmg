@@ -1,0 +1,30 @@
+/**
+ * Fonts setup
+ *
+ */
+ $main-ff: 'Rubik', 'Arial', sans-serif;
+
+
+ /**
+ * Colors setup
+ *
+ */
+// Firm site color
+$main-site: #6CEEC7;
+
+// Text site color's
+$text-main: #fff;
+$text-accent: $main-site;
+
+/**
+ * Breakpoints
+ *
+ */
+$breakpoints: (
+    ('xs', 320px),
+    ('sm', 660px),
+    ('md', 768px),
+    ('lg', 1140px)
+  ) !default;
+
+$transition-duration: .3s;

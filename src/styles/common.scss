@@ -1,0 +1,92 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 320px;
+    padding: 0 15px 91px;
+    font-family: $main-ff;
+    font-size: clamp(19px, 4vw, 24px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: $text-main;
+
+    background: no-repeat top / contain url('../assets/images/forms-bg-mobile-top.png'),
+        no-repeat bottom right url('../assets/images/forms-bg-mobile-bottom.png'),
+        center / cover url('../assets/images/bg-mobile.jpg');
+
+    @include respond-to('sm') {
+        padding: 0;
+        background-image: url('../assets/images/bg-desktop.jpg');
+        background-size: cover;
+    }
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    display: none;
+
+    @include respond-to('sm') {
+        display: block;
+        margin-bottom: 30px;
+    }
+}
+
+.description {
+    margin-bottom: 30px;
+    font-weight: 500;
+    text-align: center;
+
+    .accent {
+        color: $text-accent;
+    }
+
+    @include respond-to('sm') {
+        margin: 0 0 55px;
+    }
+}
+
+.button {
+    width: 100%;
+    min-width: 165px;
+    padding: 16px 15px 17px;
+    background: $main-site;
+    border: 1px solid $main-site;
+    border-radius: 4px;
+    box-shadow: none;
+    font-family: $main-ff;
+    font-weight: 500;
+    text-align: center;
+    color: #000;
+    
+    @include respond-to('sm') {
+        flex-basis: content;
+        background-color: transparent;
+        color: $main-site;
+        cursor: pointer;
+        transition: background-color $transition-duration;
+
+        &:hover {
+            background-color: $main-site;
+            color: #000;        
+        }
+    }
+}

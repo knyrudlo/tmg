@@ -1,0 +1,103 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.form-groupe {
+    $self: &;
+
+    $inpiut-font-size: 19px;
+    $inpiut-left-shift: 50px;
+
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+    background-repeat: no-repeat;
+    font-size: $inpiut-font-size;
+    color: $text-main;
+
+    &:last-child {
+        margin-bottom: 40px;
+    }
+
+    &_name {
+        background-image: url('../../assets/images/icon-first-name.svg');
+        background-position: left 18px center;
+    }
+
+    &_second-name {
+        background-image: url('../../assets/images/icon-second-name.svg');
+        background-position: left 17px center;
+    }
+
+    &_phone {
+        background-image: url('../../assets/images/icon-phone.svg');
+        background-position: left 18px center;
+    }
+
+    &_password {
+        background-image: url('../../assets/images/icon-password.svg');
+        background-position: left 20px center;
+    }
+
+    &_confirm-password {
+        background-image: url('../../assets/images/icon-password-check.svg');
+        background-position: left 16px center;
+    }
+
+    &_email {
+        background-image: url('../../assets/images/icon-email.svg');
+        background-position: left 18px center;
+    }
+
+    &__label {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: $inpiut-left-shift;
+        transition: top $transition-duration;
+        will-change: top;
+
+        &_active {
+            top: 13px;
+            font-size: 11px;
+            color: $main-site;
+
+            & + #{ $self }__field {
+                padding: 22px 15px 11px $inpiut-left-shift;
+            }
+        }
+    }
+
+    &__field {
+        width: 100%;
+        padding: 17px 15px 16px $inpiut-left-shift;
+        background: transparent;
+        border: 1px solid $text-main;
+        border-radius: 3px;
+        box-shadow: 0px 4px 15px 0px #0000004D;
+        font-size: $inpiut-font-size;
+        line-height: 1.1;
+        color: $text-main;
+        outline: none;
+
+        &:hover,
+        &:focus {
+            border-color: $main-site;
+        }
+        
+        // https://stackoverflow.com/questions/2781549/removing-input-background-colour-for-chrome-autocomplete
+        /* Change the white to any color */
+        &:-webkit-autofill{
+            -webkit-text-fill-color: #ffffff !important;
+        }
+
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover, 
+        &:-webkit-autofill:focus, 
+        &:-webkit-autofill:active{
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: #ffffff;
+            transition: background-color 5000s ease-in-out 0s;
+            box-shadow: inset 0 0 20px 20px #23232329;
+        }
+    }
+}

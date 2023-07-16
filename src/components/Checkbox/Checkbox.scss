@@ -1,0 +1,53 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.checkbox-groupe {
+    margin-bottom: 50px;
+
+    @include respond-to('sm') {
+        min-height: 56px;
+        margin-bottom: 0;
+    }
+
+    &__label {
+        position: relative;
+        padding-left: 31px;
+        font-size: 18px;
+        cursor: pointer;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border: 1px solid $main-site;
+            border-radius: 4px;
+            background-color: transparent;
+            line-height: 15px;
+            text-align: center;
+            transition: background-color $transition-duration;
+        }
+    }
+
+    &__link {
+        line-height: 1.5;
+        text-decoration: underline;
+        color: $main-site;
+    }
+
+    &__input {
+        display: none;
+
+        &:checked {
+            & + .checkbox-groupe__label {
+                &:before {
+                    content: url('../../assets/images/terms-mark.png');
+                    background-color: $main-site;
+                }
+            }
+        }
+    }
+}
